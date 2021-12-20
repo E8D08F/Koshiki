@@ -1,0 +1,16 @@
+* { margin: 0; padding: 0 }
+
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    
+    user-select: none;
+    -webkit-user-select: none;
+    
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    display: block;
+}

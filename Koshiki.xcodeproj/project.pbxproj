@@ -1,0 +1,408 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		994481A5276F0AEC004AC5D5 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994481A4276F0AEC004AC5D5 /* WebView.swift */; };
+		994481A7276F0B03004AC5D5 /* EffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994481A6276F0B03004AC5D5 /* EffectView.swift */; };
+		994481AB276F163A004AC5D5 /* head.html in Resources */ = {isa = PBXBuildFile; fileRef = 994481AA276F163A004AC5D5 /* head.html */; };
+		994481AD276F166C004AC5D5 /* HTMLSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994481AC276F166C004AC5D5 /* HTMLSource.swift */; };
+		994481AF276F16E8004AC5D5 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 994481AE276F16E8004AC5D5 /* style.css */; };
+		995B6E3A27705AD7000FEE65 /* svg2png.js in Resources */ = {isa = PBXBuildFile; fileRef = 995B6E3927705AD7000FEE65 /* svg2png.js */; };
+		997D4D01276DDD66005D9519 /* KoshikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D00276DDD66005D9519 /* KoshikiApp.swift */; };
+		997D4D03276DDD66005D9519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D02276DDD66005D9519 /* ContentView.swift */; };
+		997D4D05276DDD68005D9519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997D4D04276DDD68005D9519 /* Assets.xcassets */; };
+		997D4D08276DDD68005D9519 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997D4D07276DDD68005D9519 /* Preview Assets.xcassets */; };
+		997D4D10276DDDDA005D9519 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D0F276DDDDA005D9519 /* Metrics.swift */; };
+		997D4D13276DE1DD005D9519 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 997D4D12276DE1DD005D9519 /* KeyboardShortcuts */; };
+		99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC8ED7276F6F03004E492D /* Preferences.swift */; };
+		99EC8EDA27701640004E492D /* postRender.js in Resources */ = {isa = PBXBuildFile; fileRef = 99EC8ED92770163F004E492D /* postRender.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		994481A4276F0AEC004AC5D5 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		994481A6276F0B03004AC5D5 /* EffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectView.swift; sourceTree = "<group>"; };
+		994481AA276F163A004AC5D5 /* head.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = head.html; sourceTree = "<group>"; };
+		994481AC276F166C004AC5D5 /* HTMLSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLSource.swift; sourceTree = "<group>"; };
+		994481AE276F16E8004AC5D5 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		995B6E3927705AD7000FEE65 /* svg2png.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = svg2png.js; sourceTree = "<group>"; };
+		997D4CFD276DDD66005D9519 /* Koshiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koshiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		997D4D00276DDD66005D9519 /* KoshikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoshikiApp.swift; sourceTree = "<group>"; };
+		997D4D02276DDD66005D9519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		997D4D04276DDD68005D9519 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		997D4D07276DDD68005D9519 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		997D4D09276DDD68005D9519 /* Koshiki.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Koshiki.entitlements; sourceTree = "<group>"; };
+		997D4D0F276DDDDA005D9519 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		99EC8ED7276F6F03004E492D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		99EC8ED92770163F004E492D /* postRender.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = postRender.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		997D4CFA276DDD66005D9519 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				997D4D13276DE1DD005D9519 /* KeyboardShortcuts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		997D4CF4276DDD66005D9519 = {
+			isa = PBXGroup;
+			children = (
+				997D4CFF276DDD66005D9519 /* Koshiki */,
+				997D4CFE276DDD66005D9519 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		997D4CFE276DDD66005D9519 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				997D4CFD276DDD66005D9519 /* Koshiki.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		997D4CFF276DDD66005D9519 /* Koshiki */ = {
+			isa = PBXGroup;
+			children = (
+				997D4D00276DDD66005D9519 /* KoshikiApp.swift */,
+				997D4D02276DDD66005D9519 /* ContentView.swift */,
+				99EC8ED7276F6F03004E492D /* Preferences.swift */,
+				994481A4276F0AEC004AC5D5 /* WebView.swift */,
+				994481A6276F0B03004AC5D5 /* EffectView.swift */,
+				994481AA276F163A004AC5D5 /* head.html */,
+				99EC8ED92770163F004E492D /* postRender.js */,
+				994481AE276F16E8004AC5D5 /* style.css */,
+				995B6E3927705AD7000FEE65 /* svg2png.js */,
+				997D4D04276DDD68005D9519 /* Assets.xcassets */,
+				997D4D09276DDD68005D9519 /* Koshiki.entitlements */,
+				997D4D06276DDD68005D9519 /* Preview Content */,
+				997D4D0F276DDDDA005D9519 /* Metrics.swift */,
+				994481AC276F166C004AC5D5 /* HTMLSource.swift */,
+			);
+			path = Koshiki;
+			sourceTree = "<group>";
+		};
+		997D4D06276DDD68005D9519 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				997D4D07276DDD68005D9519 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		997D4CFC276DDD66005D9519 /* Koshiki */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 997D4D0C276DDD68005D9519 /* Build configuration list for PBXNativeTarget "Koshiki" */;
+			buildPhases = (
+				997D4CF9276DDD66005D9519 /* Sources */,
+				997D4CFA276DDD66005D9519 /* Frameworks */,
+				997D4CFB276DDD66005D9519 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Koshiki;
+			packageProductDependencies = (
+				997D4D12276DE1DD005D9519 /* KeyboardShortcuts */,
+			);
+			productName = Koshiki;
+			productReference = 997D4CFD276DDD66005D9519 /* Koshiki.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		997D4CF5276DDD66005D9519 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					997D4CFC276DDD66005D9519 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 997D4CF8276DDD66005D9519 /* Build configuration list for PBXProject "Koshiki" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 997D4CF4276DDD66005D9519;
+			packageReferences = (
+				997D4D11276DE1DD005D9519 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
+			productRefGroup = 997D4CFE276DDD66005D9519 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				997D4CFC276DDD66005D9519 /* Koshiki */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		997D4CFB276DDD66005D9519 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				997D4D08276DDD68005D9519 /* Preview Assets.xcassets in Resources */,
+				994481AF276F16E8004AC5D5 /* style.css in Resources */,
+				994481AB276F163A004AC5D5 /* head.html in Resources */,
+				997D4D05276DDD68005D9519 /* Assets.xcassets in Resources */,
+				995B6E3A27705AD7000FEE65 /* svg2png.js in Resources */,
+				99EC8EDA27701640004E492D /* postRender.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		997D4CF9276DDD66005D9519 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				997D4D03276DDD66005D9519 /* ContentView.swift in Sources */,
+				99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */,
+				994481AD276F166C004AC5D5 /* HTMLSource.swift in Sources */,
+				994481A5276F0AEC004AC5D5 /* WebView.swift in Sources */,
+				994481A7276F0B03004AC5D5 /* EffectView.swift in Sources */,
+				997D4D10276DDDDA005D9519 /* Metrics.swift in Sources */,
+				997D4D01276DDD66005D9519 /* KoshikiApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		997D4D0A276DDD68005D9519 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		997D4D0B276DDD68005D9519 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		997D4D0D276DDD68005D9519 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Koshiki/Koshiki.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Koshiki/Preview Content\"";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Koshiki/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.chunghwa.Koshiki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		997D4D0E276DDD68005D9519 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Koshiki/Koshiki.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Koshiki/Preview Content\"";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Koshiki/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.chunghwa.Koshiki;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		997D4CF8276DDD66005D9519 /* Build configuration list for PBXProject "Koshiki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				997D4D0A276DDD68005D9519 /* Debug */,
+				997D4D0B276DDD68005D9519 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		997D4D0C276DDD68005D9519 /* Build configuration list for PBXNativeTarget "Koshiki" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				997D4D0D276DDD68005D9519 /* Debug */,
+				997D4D0E276DDD68005D9519 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		997D4D11276DE1DD005D9519 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		997D4D12276DE1DD005D9519 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 997D4D11276DE1DD005D9519 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 997D4CF5276DDD66005D9519 /* Project object */;
+}
