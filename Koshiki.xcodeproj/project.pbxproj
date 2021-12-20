@@ -12,13 +12,13 @@
 		994481AB276F163A004AC5D5 /* head.html in Resources */ = {isa = PBXBuildFile; fileRef = 994481AA276F163A004AC5D5 /* head.html */; };
 		994481AD276F166C004AC5D5 /* HTMLSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994481AC276F166C004AC5D5 /* HTMLSource.swift */; };
 		994481AF276F16E8004AC5D5 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 994481AE276F16E8004AC5D5 /* style.css */; };
-		995B6E3A27705AD7000FEE65 /* svg2png.js in Resources */ = {isa = PBXBuildFile; fileRef = 995B6E3927705AD7000FEE65 /* svg2png.js */; };
 		997D4D01276DDD66005D9519 /* KoshikiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D00276DDD66005D9519 /* KoshikiApp.swift */; };
 		997D4D03276DDD66005D9519 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D02276DDD66005D9519 /* ContentView.swift */; };
 		997D4D05276DDD68005D9519 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997D4D04276DDD68005D9519 /* Assets.xcassets */; };
 		997D4D08276DDD68005D9519 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 997D4D07276DDD68005D9519 /* Preview Assets.xcassets */; };
 		997D4D10276DDDDA005D9519 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D0F276DDDDA005D9519 /* Metrics.swift */; };
 		997D4D13276DE1DD005D9519 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 997D4D12276DE1DD005D9519 /* KeyboardShortcuts */; };
+		99A41CF62770970000976288 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A41CF52770970000976288 /* IconButton.swift */; };
 		99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC8ED7276F6F03004E492D /* Preferences.swift */; };
 		99EC8EDA27701640004E492D /* postRender.js in Resources */ = {isa = PBXBuildFile; fileRef = 99EC8ED92770163F004E492D /* postRender.js */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,6 @@
 		994481AA276F163A004AC5D5 /* head.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = head.html; sourceTree = "<group>"; };
 		994481AC276F166C004AC5D5 /* HTMLSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLSource.swift; sourceTree = "<group>"; };
 		994481AE276F16E8004AC5D5 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
-		995B6E3927705AD7000FEE65 /* svg2png.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = svg2png.js; sourceTree = "<group>"; };
 		997D4CFD276DDD66005D9519 /* Koshiki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koshiki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		997D4D00276DDD66005D9519 /* KoshikiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoshikiApp.swift; sourceTree = "<group>"; };
 		997D4D02276DDD66005D9519 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -37,6 +36,7 @@
 		997D4D07276DDD68005D9519 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		997D4D09276DDD68005D9519 /* Koshiki.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Koshiki.entitlements; sourceTree = "<group>"; };
 		997D4D0F276DDDDA005D9519 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
+		99A41CF52770970000976288 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		99EC8ED7276F6F03004E492D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		99EC8ED92770163F004E492D /* postRender.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = postRender.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,13 +74,13 @@
 			children = (
 				997D4D00276DDD66005D9519 /* KoshikiApp.swift */,
 				997D4D02276DDD66005D9519 /* ContentView.swift */,
+				99A41CF52770970000976288 /* IconButton.swift */,
 				99EC8ED7276F6F03004E492D /* Preferences.swift */,
 				994481A4276F0AEC004AC5D5 /* WebView.swift */,
 				994481A6276F0B03004AC5D5 /* EffectView.swift */,
 				994481AA276F163A004AC5D5 /* head.html */,
 				99EC8ED92770163F004E492D /* postRender.js */,
 				994481AE276F16E8004AC5D5 /* style.css */,
-				995B6E3927705AD7000FEE65 /* svg2png.js */,
 				997D4D04276DDD68005D9519 /* Assets.xcassets */,
 				997D4D09276DDD68005D9519 /* Koshiki.entitlements */,
 				997D4D06276DDD68005D9519 /* Preview Content */,
@@ -166,7 +166,6 @@
 				994481AF276F16E8004AC5D5 /* style.css in Resources */,
 				994481AB276F163A004AC5D5 /* head.html in Resources */,
 				997D4D05276DDD68005D9519 /* Assets.xcassets in Resources */,
-				995B6E3A27705AD7000FEE65 /* svg2png.js in Resources */,
 				99EC8EDA27701640004E492D /* postRender.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99A41CF62770970000976288 /* IconButton.swift in Sources */,
 				997D4D03276DDD66005D9519 /* ContentView.swift in Sources */,
 				99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */,
 				994481AD276F166C004AC5D5 /* HTMLSource.swift in Sources */,

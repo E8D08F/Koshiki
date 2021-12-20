@@ -35,29 +35,28 @@ struct ContentView: View {
     let timingFunction = CAMediaTimingFunction(controlPoints: 0.65, 0, 0.35, 1)
     
     var formulaField: some View {
-        VStack(spacing: Metrics.padding / 2) {
-            TextField("\\Koshiki{...}", text: $rawFormula)
-                .textFieldStyle(.plain)
-                .focused($field, equals: .formula)
-                .lineLimit(0)
-                // Avoid being modified multiple times (like Typinator)
-                .onChange(of: rawFormula) { _ in
-                    DispatchQueue.main.async {
-                        formula = rawFormula
-                        changeFormulaFrame()
-                    }
+        TextField("\\Koshiki{...}", text: $rawFormula)
+            .textFieldStyle(.plain)
+            .padding(Metrics.padding)
+            .focused($field, equals: .formula)
+            .lineLimit(0)
+            // Avoid being modified multiple times (like Typinator)
+            .onChange(of: rawFormula) { _ in
+                DispatchQueue.main.async {
+                    formula = rawFormula
+                    changeFormulaFrame()
                 }
-                .onReceive(NotificationCenter.default.publisher(for: Notification.Name("showFormulaPanel"))) { _ in
-                    field = .formula
-                }
-                .onAppear {
-                    formulaWindow = AppDelegate.instance.formulaWindow
+            }
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("showFormulaPanel"))) { _ in
+                field = .formula
+            }
+            .onAppear {
+                formulaWindow = AppDelegate.instance.formulaWindow
 
-                    let rootView = Formula(formulaSVG: $formulaSVG, formulaRect: $formulaRect)
-                    formulaWindow.contentView = NSHostingView(rootView: rootView)
-                    panel.addChildWindow(formulaWindow, ordered: .below)
-                }
-        }
+                let rootView = Formula(formulaSVG: $formulaSVG, formulaRect: $formulaRect)
+                formulaWindow.contentView = NSHostingView(rootView: rootView)
+                panel.addChildWindow(formulaWindow, ordered: .below)
+            }
     }
     
     var extraWidth: CGFloat {
@@ -66,19 +65,77 @@ struct ContentView: View {
         return CGFloat(delta) * 8
     }
     
+    var buttons: some View {
+        VStack {
+            HStack(spacing: Metrics.padding / 4) {
+                IconButton(name: "escape")
+                    .onTapGesture {
+                        NSCursor.unhide()
+                        NSApp.hide(nil)
+                    }
+                
+                Spacer()
+                
+                IconButton(name: "export")
+                    .onTapGesture { exportToSVG() }
+                    .opacity(formulaSVG.isEmpty || !errorMessage.isEmpty ? 0 : 1)
+                    .animation(.easeOut, value: formulaSVG.isEmpty || !errorMessage.isEmpty)
+                
+                IconButton(name: "history")
+                    .onTapGesture {
+                        
+                    }
+            }
+            
+            Spacer()
+        }
+        .padding(Metrics.padding / 2)
+    }
+    
 
     var body: some View {
         ZStack {
+            buttons
+            
             formulaField
         
             VStack {
                 Spacer()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                
-                    Text("\(errorMessage)")
-                        .font(Font.caption)
-                        .foregroundColor(.secondary)
+                if !errorMessage.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 0) {
+                            IconButton(name: "bug")
+                            
+                            Text(" = \(errorMessage)")
+                                .font(Font.caption)
+                                .foregroundColor(.secondary)
+                        }
+                        .padding(Metrics.padding / 2)
+                    }
+                    .mask (
+                        HStack(spacing: 0) {
+                            LinearGradient(colors: [
+                                .black,
+                                .black.opacity(0.924),
+                                .black.opacity(0.707),
+                                .black.opacity(0.383),
+                                .black.opacity(0)   // sin(x * pi / 2)
+                            ], startPoint: .trailing, endPoint: .leading)
+                                .frame(width: Metrics.padding / 2)
+
+                            Rectangle()
+
+                            LinearGradient(colors: [
+                                .black,
+                                .black.opacity(0.924),
+                                .black.opacity(0.707),
+                                .black.opacity(0.383),
+                                .black.opacity(0)   // sin(x * pi / 2)
+                            ], startPoint: .leading, endPoint: .trailing)
+                                .frame(width: Metrics.padding / 2)
+                        }
+                    )
                 }
             }
             
@@ -111,12 +168,12 @@ struct ContentView: View {
                 Button("", action: copyFormula)
                     .keyboardShortcut(.return, modifiers: [.command])
                 
-                Button("") { AppDelegate.instance.panel.orderOut(nil) }
+                Button("") { NSApp.hide(nil) }
                     .keyboardShortcut(.escape, modifiers: [])
             }.hidden()
         }
             .font(.body.monospaced())
-            .padding(Metrics.padding)
+            
             .frame(minWidth: Metrics.windowWidth + extraWidth, maxWidth: Metrics.windowWidth + extraWidth)
             .frame(height: Metrics.windowHeight)
             .ignoresSafeArea()
@@ -187,9 +244,7 @@ struct Formula: View {
     var body: some View {
         ZStack {
             if !formulaSVG.isEmpty {
-                WebView(htmlSource: "<html>\(HTMLSource.head(title: "Formula"))<body>\(formulaSVG)</body></html>", scripts: [
-                    WebView.Script(name: "svg2png", injectionTime: .atDocumentEnd)
-                ])
+                WebView(htmlSource: "<html>\(HTMLSource.head(title: "Formula"))<body>\(formulaSVG)</body></html>")
                     .frame(width: formulaRect.0, height: formulaRect.1)
             }
         }
