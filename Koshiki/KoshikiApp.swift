@@ -14,10 +14,15 @@ struct KoshikiApp: App {
 
     var body: some Scene {
         WindowGroup {}
+            .commands {
+                CommandGroup(replacing: .appInfo) {
+                    Button("About Koshiki") { }
+                }
+                
+                CommandGroup(replacing: .newItem) { }
+            }
         
-        Settings {
-            Preferences()
-        }
+        Settings { Preferences() }
     }
 }
 class AppDelegate: NSObject, NSApplicationDelegate {
