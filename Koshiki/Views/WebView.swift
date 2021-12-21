@@ -60,6 +60,7 @@ struct WebView: NSViewRepresentable {
     }
     
     func updateNSView(_ nsView: WKWebView, context: Context) {
+        AppDelegate.instance.panel.isMovable = false
         nsView.loadHTMLString(htmlSource, baseURL: nil)
     }
     
@@ -90,6 +91,8 @@ struct WebView: NSViewRepresentable {
                 default: break
                 }
             }
+            
+            AppDelegate.instance.panel.isMovable = true
         }
         
         init(scripts: [Script]?) { self.scripts = scripts ?? [] }
