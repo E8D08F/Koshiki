@@ -17,6 +17,7 @@ struct Formula: View {
             if !formulaSVG.isEmpty {
                 WebView(htmlSource: "<html>\(HTMLSource.head(title: "Formula"))<body>\(formulaSVG)</body></html>")
                     .frame(width: formulaRect.0, height: formulaRect.1)
+                    .saturation(0)
                     .blur(radius: errorMessage.isEmpty ? 0 : 2)
                     .animation(.easeOut, value: errorMessage.isEmpty)
             }

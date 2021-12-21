@@ -68,16 +68,10 @@ struct FormulaEditor: View {
             HStack(spacing: Metrics.padding / 4) {
                 Spacer()
                 
-                IconButton(name: "export")
-                    .onTapGesture { exportToSVG() }
-                    .help(formulaSVG.isEmpty || !errorMessage.isEmpty ? "" : "Export")
+                IconButton("export", help: "Export", disabled: formulaSVG.isEmpty) { exportToSVG() }
                     .opacity(formulaSVG.isEmpty || !errorMessage.isEmpty ? 0 : 1)
                 
-                IconButton(name: "history")
-                    .onTapGesture {
-                        
-                    }
-                    .help("History")
+                IconButton("history", help: "History") { }
             }
             .padding(Metrics.padding / 2)
             
@@ -85,8 +79,7 @@ struct FormulaEditor: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 0) {
-                    IconButton(name: "bug")
-                        .help(errorMessage.isEmpty ? "" : "Annoying, right?")
+                    IconButton("bug", help: "Annoying, right?", disabled: errorMessage.isEmpty)
                         .opacity(errorMessage.isEmpty ? 0 : 1)
                     
                     Text(" = \(errorMessage)")
@@ -177,7 +170,7 @@ struct FormulaEditor: View {
             .frame(height: Metrics.windowHeight - Metrics.titlebarHeight)
             .background(
                 ZStack {
-                    EffectView(material: .popover, blendingMode: .behindWindow).ignoresSafeArea()
+                    EffectView(material: .menu, blendingMode: .behindWindow).ignoresSafeArea()
                     
                     Image("Grain")
                         .blendMode(.overlay)
