@@ -20,6 +20,8 @@
 		997D4D13276DE1DD005D9519 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 997D4D12276DE1DD005D9519 /* KeyboardShortcuts */; };
 		99A41CF62770970000976288 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A41CF52770970000976288 /* IconButton.swift */; };
 		99E4AD5B277201EC00E477AE /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E4AD5A277201EC00E477AE /* Support.swift */; };
+		99E4AD602772076200E477AE /* Formula.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E4AD5F2772076200E477AE /* Formula.swift */; };
+		99E4AD622772078C00E477AE /* FormulaEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E4AD612772078C00E477AE /* FormulaEditor.swift */; };
 		99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC8ED7276F6F03004E492D /* Preferences.swift */; };
 		99EC8EDA27701640004E492D /* postRender.js in Resources */ = {isa = PBXBuildFile; fileRef = 99EC8ED92770163F004E492D /* postRender.js */; };
 /* End PBXBuildFile section */
@@ -39,6 +41,8 @@
 		997D4D0F276DDDDA005D9519 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		99A41CF52770970000976288 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
 		99E4AD5A277201EC00E477AE /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		99E4AD5F2772076200E477AE /* Formula.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formula.swift; sourceTree = "<group>"; };
+		99E4AD612772078C00E477AE /* FormulaEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormulaEditor.swift; sourceTree = "<group>"; };
 		99EC8ED7276F6F03004E492D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		99EC8ED92770163F004E492D /* postRender.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = postRender.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +111,8 @@
 		99E4AD5D277206CD00E477AE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				99E4AD5F2772076200E477AE /* Formula.swift */,
+				99E4AD612772078C00E477AE /* FormulaEditor.swift */,
 				99A41CF52770970000976288 /* IconButton.swift */,
 				994481A4276F0AEC004AC5D5 /* WebView.swift */,
 				994481A6276F0B03004AC5D5 /* EffectView.swift */,
@@ -208,10 +214,12 @@
 				997D4D03276DDD66005D9519 /* ContentView.swift in Sources */,
 				99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */,
 				994481AD276F166C004AC5D5 /* HTMLSource.swift in Sources */,
+				99E4AD622772078C00E477AE /* FormulaEditor.swift in Sources */,
 				994481A5276F0AEC004AC5D5 /* WebView.swift in Sources */,
 				994481A7276F0B03004AC5D5 /* EffectView.swift in Sources */,
 				997D4D10276DDDDA005D9519 /* Metrics.swift in Sources */,
 				997D4D01276DDD66005D9519 /* KoshikiApp.swift in Sources */,
+				99E4AD602772076200E477AE /* Formula.swift in Sources */,
 				99E4AD5B277201EC00E477AE /* Support.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
