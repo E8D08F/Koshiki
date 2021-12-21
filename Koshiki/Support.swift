@@ -24,3 +24,23 @@ func system(_ command: String, directoryURL: URL? = nil) {
     let data = pipe.fileHandleForReading.readDataToEndOfFile()
     print("Koshiki", String(data: data, encoding: .utf8)!)
 }
+
+extension Array: RawRepresentable where Element: Codable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let json = try? JSONDecoder().decode([Element].self, from: data) else {
+                  return nil
+              }
+        
+        self = json
+    }
+    
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let json = String(data: data, encoding: .utf8) else {
+                  return "[]"
+              }
+        
+        return json
+    }
+}

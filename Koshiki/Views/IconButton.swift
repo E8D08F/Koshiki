@@ -21,7 +21,6 @@ struct IconButton: View {
             .resizable()
             .padding(2)
             .foregroundColor(colour.opacity(hover ? 1 : 0.4))
-//            .background(Color.black.opacity(hover ? 0.1 : 0.05))
             .frame(width: 18, height: 18)
             .cornerRadius(3)
             .help(disabled ? "" : help)

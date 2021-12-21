@@ -18,6 +18,12 @@ struct FormulaEditor: View {
     @AppStorage(PreferenceType.customSVGExportPath) var customSVGExportPath: String = ""
     @AppStorage(PreferenceType.svgexportRawArguments) var svgexportRawArguments: String = ""
     
+    struct HistoryFormula: Identifiable, Codable {
+        var id = UUID()
+        let raw: String
+    }
+    @AppStorage("historyFormulae") var historyFormulae: [HistoryFormula] = []
+    
     enum Field: Hashable {
         case formula, web
     }
@@ -68,10 +74,29 @@ struct FormulaEditor: View {
             HStack(spacing: Metrics.padding / 4) {
                 Spacer()
                 
-                IconButton("export", help: "Export", disabled: formulaSVG.isEmpty) { exportToSVG() }
-                    .opacity(formulaSVG.isEmpty || !errorMessage.isEmpty ? 0 : 1)
+                if !formulaSVG.isEmpty && errorMessage.isEmpty {
+                    IconButton("export", help: "Export") { exportToSVG() }
+                }
                 
-                IconButton("history", help: "History") { }
+                if !historyFormulae.isEmpty {
+                    ZStack {
+                        IconButton("history", help: "History")
+                        
+                        Menu("") {
+                            ForEach(historyFormulae) { historyFormula in
+                                Button(historyFormula.raw) {
+                                    rawFormula = historyFormula.raw
+                                }
+                            }
+                            
+                            Divider()
+                            
+                            Button("Clear History") { historyFormulae = [] }
+                        }
+                        .menuStyle(BorderlessButtonMenuStyle())
+                        .menuIndicator(.hidden)
+                    }.frame(width: 18, height: 18)
+                }
             }
             .padding(Metrics.padding / 2)
             
@@ -201,7 +226,15 @@ extension FormulaEditor {
         errorMessage = ""
     }
     
-    private func hide() {
+    private func save() {
+        if historyFormulae.last == nil || historyFormulae.last!.raw != rawFormula {
+            historyFormulae.insert(HistoryFormula(raw: rawFormula), at: 0)
+            
+            if historyFormulae.count > 5 {
+                let _ = historyFormulae.popLast()
+            }
+        }
+        
         clean()
         
         NSApp.hide(nil)
@@ -223,7 +256,7 @@ extension FormulaEditor {
             
             pasteboard.setString(embraced, forType: .string)
 
-            hide()
+            save()
         }
     }
 
@@ -244,7 +277,7 @@ extension FormulaEditor {
                 
                 system("open .", directoryURL: tempDirectory)
                 
-                hide()
+                save()
             } catch { print(error) }
         }
     }
