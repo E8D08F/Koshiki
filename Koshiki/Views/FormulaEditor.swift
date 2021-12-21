@@ -109,7 +109,7 @@ struct FormulaEditor: View {
                     
                     Text("= \(errorMessage)")
                         .font(Font.caption)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(.primary.opacity(0.4))
                         .opacity(errorMessage.isEmpty ? 0 : 1)
                 }
                 .padding(Metrics.padding / 2)
