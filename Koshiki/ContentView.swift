@@ -47,13 +47,18 @@ struct ContentView: View {
                     changeFormulaFrame()
                 }
             }
-            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("showFormulaPanel"))) { _ in
+            .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
                 field = .formula
+                changeFormulaFrame(withAnimation: false) {
+                    panel.orderFrontRegardless()
+                    panel.makeKey()
+                    NSApp.unhide(nil)
+                }
             }
             .onAppear {
                 formulaWindow = AppDelegate.instance.formulaWindow
 
-                let rootView = Formula(formulaSVG: $formulaSVG, formulaRect: $formulaRect)
+                let rootView = Formula(formulaSVG: $formulaSVG, formulaRect: $formulaRect, errorMessage: $errorMessage)
                 formulaWindow.contentView = NSHostingView(rootView: rootView)
                 panel.addChildWindow(formulaWindow, ordered: .below)
             }
@@ -68,30 +73,24 @@ struct ContentView: View {
     var buttons: some View {
         VStack {
             HStack(spacing: Metrics.padding / 4) {
-                IconButton(name: "escape")
-                    .onTapGesture {
-                        NSCursor.unhide()
-                        NSApp.hide(nil)
-                    }
-                
                 Spacer()
                 
                 IconButton(name: "export")
                     .onTapGesture { exportToSVG() }
+                    .help(formulaSVG.isEmpty || !errorMessage.isEmpty ? "" : "Export")
                     .opacity(formulaSVG.isEmpty || !errorMessage.isEmpty ? 0 : 1)
-                    .animation(.easeOut, value: formulaSVG.isEmpty || !errorMessage.isEmpty)
                 
                 IconButton(name: "history")
                     .onTapGesture {
                         
                     }
+                    .help("History")
             }
             
             Spacer()
         }
         .padding(Metrics.padding / 2)
     }
-    
 
     var body: some View {
         ZStack {
@@ -102,41 +101,42 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                if !errorMessage.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 0) {
-                            IconButton(name: "bug")
-                            
-                            Text(" = \(errorMessage)")
-                                .font(Font.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding(Metrics.padding / 2)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        IconButton(name: "bug")
+                            .help(errorMessage.isEmpty ? "" : "Annoying, right?")
+                            .opacity(errorMessage.isEmpty ? 0 : 1)
+                        
+                        Text(" = \(errorMessage)")
+                            .font(Font.caption)
+                            .foregroundColor(.secondary)
+                            .opacity(errorMessage.isEmpty ? 0 : 1)
                     }
-                    .mask (
-                        HStack(spacing: 0) {
-                            LinearGradient(colors: [
-                                .black,
-                                .black.opacity(0.924),
-                                .black.opacity(0.707),
-                                .black.opacity(0.383),
-                                .black.opacity(0)   // sin(x * pi / 2)
-                            ], startPoint: .trailing, endPoint: .leading)
-                                .frame(width: Metrics.padding / 2)
-
-                            Rectangle()
-
-                            LinearGradient(colors: [
-                                .black,
-                                .black.opacity(0.924),
-                                .black.opacity(0.707),
-                                .black.opacity(0.383),
-                                .black.opacity(0)   // sin(x * pi / 2)
-                            ], startPoint: .leading, endPoint: .trailing)
-                                .frame(width: Metrics.padding / 2)
-                        }
-                    )
+                    .padding(Metrics.padding / 2)
                 }
+                .mask (
+                    HStack(spacing: 0) {
+                        LinearGradient(colors: [
+                            .black,
+                            .black.opacity(0.924),
+                            .black.opacity(0.707),
+                            .black.opacity(0.383),
+                            .black.opacity(0)   // sin(x * pi / 2)
+                        ], startPoint: .trailing, endPoint: .leading)
+                            .frame(width: Metrics.padding / 4 * 3)
+
+                        Rectangle()
+
+                        LinearGradient(colors: [
+                            .black,
+                            .black.opacity(0.924),
+                            .black.opacity(0.707),
+                            .black.opacity(0.383),
+                            .black.opacity(0)   // sin(x * pi / 2)
+                        ], startPoint: .leading, endPoint: .trailing)
+                            .frame(width: Metrics.padding / 4 * 3)
+                    }
+                )
             }
             
             WebView(htmlSource: webSource, scripts: [
@@ -187,67 +187,23 @@ struct ContentView: View {
                 }
             )
     }
-
-    func copyFormula() {
-        if formula != "" {
-            let pasteboard = NSPasteboard.general
-            pasteboard.clearContents()
-            
-            var embraced: String
-            
-            switch embracingNotes {
-            case .dollars:
-                embraced = "$\(formula)$"
-            case .slashBrackets:
-                embraced = "\\(\(formula)\\)"
-            }
-            
-            pasteboard.setString(embraced, forType: .string)
-
-            formula = ""
-            formulaSVG = ""
-            errorMessage = ""
-            NSApp.hide(nil)
-        }
-    }
-
-    func exportToSVG() {
-        if formula != "" {
-            let tempDirectory = FileManager.default.temporaryDirectory.appendingPathComponent("Koshiki", isDirectory: true)
-            if !FileManager.default.fileExists(atPath: tempDirectory.path) {
-                do {
-                    try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
-                } catch { print(error) }
-            }
-            
-            let filename = tempDirectory.appendingPathComponent("formula.svg")
-            do {
-                try formulaSVG.write(to: filename, atomically: true, encoding: .utf8)
-                
-                system("export PATH=$PATH:\(customSVGExportPath.isEmpty ? PreferenceType.svgexportPathDefault : customSVGExportPath) && svgexport formula.svg formula.png \(svgexportRawArguments.isEmpty ? PreferenceType.svgexportRawArgumentsDefault : svgexportRawArguments)", directoryURL: tempDirectory)
-                
-                system("open .", directoryURL: tempDirectory)
-                
-                formula = ""
-                formulaSVG = ""
-                errorMessage = ""
-                NSApp.hide(nil)
-            } catch { print(error) }
-        }
-    }
 }
 
 struct Formula: View {
     @Binding var formulaSVG: String
     @Binding var formulaRect: (CGFloat, CGFloat)
+    @Binding var errorMessage: String
     
     var body: some View {
         ZStack {
             if !formulaSVG.isEmpty {
                 WebView(htmlSource: "<html>\(HTMLSource.head(title: "Formula"))<body>\(formulaSVG)</body></html>")
                     .frame(width: formulaRect.0, height: formulaRect.1)
+                    .blur(radius: errorMessage.isEmpty ? 0 : 2)
+                    .animation(.easeOut, value: errorMessage.isEmpty)
             }
         }
+        
         .padding(Metrics.padding)
         .padding(.trailing, Metrics.padding)
         .frame(height: Metrics.windowHeight-16)
@@ -283,15 +239,68 @@ extension ContentView {
         "<html>\(HTMLSource.head(title: "Hidden"))<body style='color:rgba(0,0,0,0);'>\\[\\color{\(colorScheme == .light ? "black" : "white")} \(formula)\\]</body></html>"
     }
     
-    func changeFormulaFrame() {
+    func copyFormula() {
+        if formula != "" {
+            let pasteboard = NSPasteboard.general
+            pasteboard.clearContents()
+            
+            var embraced: String
+            
+            switch embracingNotes {
+            case .dollars:
+                embraced = "$\(formula)$"
+            case .slashBrackets:
+                embraced = "\\(\(formula)\\)"
+            }
+            
+            pasteboard.setString(embraced, forType: .string)
+
+            rawFormula = ""
+            formula = ""
+            formulaSVG = ""
+            errorMessage = ""
+            
+            NSApp.hide(nil)
+        }
+    }
+
+    func exportToSVG() {
+        if formula != "" {
+            let tempDirectory = FileManager.default.temporaryDirectory.appendingPathComponent("Koshiki", isDirectory: true)
+            if !FileManager.default.fileExists(atPath: tempDirectory.path) {
+                do {
+                    try FileManager.default.createDirectory(at: tempDirectory, withIntermediateDirectories: true)
+                } catch { print(error) }
+            }
+            
+            let filename = tempDirectory.appendingPathComponent("formula.svg")
+            do {
+                try formulaSVG.write(to: filename, atomically: true, encoding: .utf8)
+                
+                system("export PATH=$PATH:\(customSVGExportPath.isEmpty ? PreferenceType.svgexportPathDefault : customSVGExportPath) && svgexport formula.svg formula.png \(svgexportRawArguments.isEmpty ? PreferenceType.svgexportRawArgumentsDefault : svgexportRawArguments)", directoryURL: tempDirectory)
+                
+                system("open .", directoryURL: tempDirectory)
+                
+                rawFormula = ""
+                formula = ""
+                formulaSVG = ""
+                errorMessage = ""
+                NSApp.hide(nil)
+            } catch { print(error) }
+        }
+    }
+    
+    func changeFormulaFrame(withAnimation: Bool = true, doAfter: @escaping () -> () = {}) {
         let frame = panel.frame
+        let svgWidth = formulaRect.0
         
         NSAnimationContext.runAnimationGroup { context in
             context.timingFunction = timingFunction
-            
-            formulaWindow.animator().setFrame(NSRect(x: frame.minX - formulaRect.0 - 2*Metrics.padding + 2,
+            context.completionHandler = doAfter
+
+            (withAnimation ? formulaWindow.animator() : formulaWindow).setFrame(NSRect(x: frame.minX - svgWidth - 2*Metrics.padding + 2,
                                                      y: frame.minY+8,
-                                                     width: formulaRect.0 + 2*Metrics.padding,
+                                                     width: svgWidth + 2*Metrics.padding,
                                                      height: formulaWindow.frame.height),
                                               display: true, animate: true)
         }

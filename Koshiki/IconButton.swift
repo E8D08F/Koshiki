@@ -23,19 +23,13 @@ struct IconButton: View {
             .cornerRadius(3)
             .onHover { hovering in
                 withAnimation(.easeOut) {
-                    if hovering {
-                        NSCursor.hide()
-                    } else {
-                        NSCursor.unhide()
-                    }
+                    //if hovering {
+                    //    NSCursor.hide()
+                    //} else {
+                    //    NSCursor.unhide()
+                    //}
                     hover = hovering
                 }
             }
-    }
-}
-
-struct IconButton_Previews: PreviewProvider {
-    static var previews: some View {
-        IconButton(name: "export")
     }
 }

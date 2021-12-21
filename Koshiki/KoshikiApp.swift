@@ -62,17 +62,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         })
         panel.contentView = NSHostingView(rootView: rootView)
         
-        KeyboardShortcuts.onKeyUp(for: .showFormulaPanel) { [self] in
+        KeyboardShortcuts.onKeyUp(for: .showFormulaPanel) {
             NSApp.activate(ignoringOtherApps: true)
-            NSApp.unhide(nil)
-            panel.orderFrontRegardless()
-            panel.makeKey()
         }
-    }
-    
-    func applicationDidBecomeActive(_ notification: Notification) {
-        NotificationCenter.default.post(name: Notification.Name("showFormulaPanel"),
-                                        object: nil)
     }
 }
 
