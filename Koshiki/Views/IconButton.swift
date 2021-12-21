@@ -23,11 +23,6 @@ struct IconButton: View {
             .cornerRadius(3)
             .onHover { hovering in
                 withAnimation(.easeOut) {
-                    //if hovering {
-                    //    NSCursor.hide()
-                    //} else {
-                    //    NSCursor.unhide()
-                    //}
                     hover = hovering
                 }
             }

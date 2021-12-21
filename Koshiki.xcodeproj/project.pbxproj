@@ -19,6 +19,7 @@
 		997D4D10276DDDDA005D9519 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997D4D0F276DDDDA005D9519 /* Metrics.swift */; };
 		997D4D13276DE1DD005D9519 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 997D4D12276DE1DD005D9519 /* KeyboardShortcuts */; };
 		99A41CF62770970000976288 /* IconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A41CF52770970000976288 /* IconButton.swift */; };
+		99E4AD5B277201EC00E477AE /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E4AD5A277201EC00E477AE /* Support.swift */; };
 		99EC8ED8276F6F03004E492D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EC8ED7276F6F03004E492D /* Preferences.swift */; };
 		99EC8EDA27701640004E492D /* postRender.js in Resources */ = {isa = PBXBuildFile; fileRef = 99EC8ED92770163F004E492D /* postRender.js */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		997D4D09276DDD68005D9519 /* Koshiki.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Koshiki.entitlements; sourceTree = "<group>"; };
 		997D4D0F276DDDDA005D9519 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		99A41CF52770970000976288 /* IconButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButton.swift; sourceTree = "<group>"; };
+		99E4AD5A277201EC00E477AE /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
 		99EC8ED7276F6F03004E492D /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		99EC8ED92770163F004E492D /* postRender.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = postRender.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,19 +75,14 @@
 			isa = PBXGroup;
 			children = (
 				997D4D00276DDD66005D9519 /* KoshikiApp.swift */,
-				997D4D02276DDD66005D9519 /* ContentView.swift */,
-				99A41CF52770970000976288 /* IconButton.swift */,
-				99EC8ED7276F6F03004E492D /* Preferences.swift */,
-				994481A4276F0AEC004AC5D5 /* WebView.swift */,
-				994481A6276F0B03004AC5D5 /* EffectView.swift */,
-				994481AA276F163A004AC5D5 /* head.html */,
-				99EC8ED92770163F004E492D /* postRender.js */,
-				994481AE276F16E8004AC5D5 /* style.css */,
+				997D4D0F276DDDDA005D9519 /* Metrics.swift */,
+				99E4AD5A277201EC00E477AE /* Support.swift */,
+				99E4AD5D277206CD00E477AE /* Views */,
+				99E4AD5C277206B500E477AE /* Navigation */,
+				99E4AD5E277206EE00E477AE /* HTMLSources */,
 				997D4D04276DDD68005D9519 /* Assets.xcassets */,
 				997D4D09276DDD68005D9519 /* Koshiki.entitlements */,
 				997D4D06276DDD68005D9519 /* Preview Content */,
-				997D4D0F276DDDDA005D9519 /* Metrics.swift */,
-				994481AC276F166C004AC5D5 /* HTMLSource.swift */,
 			);
 			path = Koshiki;
 			sourceTree = "<group>";
@@ -96,6 +93,36 @@
 				997D4D07276DDD68005D9519 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		99E4AD5C277206B500E477AE /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				997D4D02276DDD66005D9519 /* ContentView.swift */,
+				99EC8ED7276F6F03004E492D /* Preferences.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		99E4AD5D277206CD00E477AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99A41CF52770970000976288 /* IconButton.swift */,
+				994481A4276F0AEC004AC5D5 /* WebView.swift */,
+				994481A6276F0B03004AC5D5 /* EffectView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		99E4AD5E277206EE00E477AE /* HTMLSources */ = {
+			isa = PBXGroup;
+			children = (
+				994481AC276F166C004AC5D5 /* HTMLSource.swift */,
+				994481AA276F163A004AC5D5 /* head.html */,
+				99EC8ED92770163F004E492D /* postRender.js */,
+				994481AE276F16E8004AC5D5 /* style.css */,
+			);
+			path = HTMLSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +212,7 @@
 				994481A7276F0B03004AC5D5 /* EffectView.swift in Sources */,
 				997D4D10276DDDDA005D9519 /* Metrics.swift in Sources */,
 				997D4D01276DDD66005D9519 /* KoshikiApp.swift in Sources */,
+				99E4AD5B277201EC00E477AE /* Support.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
