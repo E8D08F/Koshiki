@@ -82,12 +82,13 @@ struct FormulaEditor: View {
                     IconButton("bug", help: "Annoying, right?", disabled: errorMessage.isEmpty)
                         .opacity(errorMessage.isEmpty ? 0 : 1)
                     
-                    Text(" = \(errorMessage)")
+                    Text("= \(errorMessage)")
                         .font(Font.caption)
                         .foregroundColor(.secondary)
                         .opacity(errorMessage.isEmpty ? 0 : 1)
                 }
                 .padding(Metrics.padding / 2)
+                .padding(.trailing, 2)
             }
             .mask (
                 HStack(spacing: 0) {
