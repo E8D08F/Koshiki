@@ -227,7 +227,7 @@ extension FormulaEditor {
     }
     
     private func save() {
-        if historyFormulae.last == nil || historyFormulae.last!.raw != rawFormula {
+        if historyFormulae.first == nil || historyFormulae.first!.raw != rawFormula {
             historyFormulae.insert(HistoryFormula(raw: rawFormula), at: 0)
             
             if historyFormulae.count > 5 {
